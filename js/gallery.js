@@ -81,11 +81,11 @@ gallery.addEventListener('click', event => {
   event.preventDefault();
     if (event.target.tagName === 'IMG') {
       const imgLarge = event.target.getAttribute("data-source");
-      console.log(imgLarge);
+      // console.log(imgLarge);
       const imgAlt = event.target.getAttribute("alt");
     
       const instance = basicLightbox.create(
-        `<img class = "gallery-image" src= '${imgLarge}' alt = '${imgAlt}' />`
+        `<img class = "gallery-image" src= '${imgLarge}' alt = '${imgAlt}' width="800" height="640"/>`
         ) ;
      instance.show();
     }  
