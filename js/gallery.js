@@ -63,15 +63,13 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-
 const gallery = document.querySelector('.gallery');
-
 const marcup = images
     .map(({ preview, description, original }) => {
         return `
      <li class="gallery-item">
          <a class="gallery-link" href='${original}'>
-             <img class="gallery-image" src ='${preview}' data-source='${original} alt ='${description}'/>
+             <img class="gallery-image" src ='${preview}' data-source='${original}' alt ='${description}'/>
          </a>
      </li >
         `;
@@ -80,18 +78,16 @@ const marcup = images
 gallery.innerHTML = marcup;
 
 gallery.addEventListener('click', event => { 
-    event.preventDefault();
+  event.preventDefault();
     if (event.target.tagName === 'IMG') {
-        const imgLarge = event.target.getAttribute("data-source");
-        // console.log(imgLarge);
-
-        const instance = basicLightbox.create(
-        `<img
-      class="gallery-image"
-      src="${images.original}"
-      alt="${images.description}" />`
-    );
-    instance.show();
+      const imgLarge = event.target.getAttribute("data-source");
+      console.log(imgLarge);
+      const imgAlt = event.target.getAttribute("alt");
+    
+      const instance = basicLightbox.create(
+        `<img class = "gallery-image" src= '${imgLarge}' alt = '${imgAlt}' />`
+        ) ;
+     instance.show();
     }  
 });
 
